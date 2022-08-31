@@ -6,11 +6,11 @@ export default function ProductsList() {
 	return (
 		<div>
 			{Object.keys(data).map((vehicleType) => (
-				<>
+				<div key={vehicleType}>
 					<h1>{vehicleType}</h1>
 					<ul>
-						{data[vehicleType].map((vehicle) => (
-							<li>
+						{data[vehicleType].map((vehicle,idx) => (
+							<li key={idx}>
 								<Link
 									href={`/products/${vehicleType}/${vehicle.brand.toLowerCase()}/${vehicle.model.toLowerCase()}/${vehicle.slug.toLowerCase()}`}>
 									<a>
@@ -20,7 +20,7 @@ export default function ProductsList() {
 							</li>
 						))}
 					</ul>
-				</>
+				</div>
 			))}
 		</div>
 	);
